@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# from bitcoin import *
 from bitcoin.bci import unspent
 from bitcoin.transaction import mktx, deserialize
 
