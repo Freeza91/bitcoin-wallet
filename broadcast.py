@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from bitcoin.transaction import deserialize
+from bitcoin.transaction import deserialize, txhash
 from bitcoin.bci import pushtx
 from decimal import Decimal
 
@@ -32,11 +32,15 @@ def check_user(sign_tx):
     else:
         return False
 
+def show_url(tx):
+    tx_hash = txhash(tx)
+    url = 'http://qukuai.com/tx/' + tx_hash
+    print "your can visit %s to see" %url
+
 def broadcast(sign_tx):
     if check_user(sign_tx):
-        pass
-    pushtx(sign_tx)
-        # show_url()
+        pushtx(sign_tx)
+        show_url(sign_tx)
 
 if __name__ == "__main__":
     import sys
