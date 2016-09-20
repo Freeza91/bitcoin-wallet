@@ -37,13 +37,18 @@ def select_outputs(unspent_list, value, fee):
     return None, 0
 
 def build_tx_params(target_addr, value, change_addr, change_value):
-    return [{'address' : target_addr, 'value' : value}, {'address': change_addr, 'value': change_value}]
+    change_addr = '1GwaiEyCE3gwFcf9o9borxRqFb5XqxK17h'
+    if change_value > 0:
+        return [{'address' : target_addr, 'value' : value}, {'address': change_addr, 'value': change_value}]
 
-def trade(sender_addr, target_addr, value, fee=0.0002):
-    # unspent_outputs = unspent(sender_addr)
+    return [{'address' : target_addr, 'value' : value}]
+
+def trade(sender_addr, value, target_addr, fee=0.0001):
+
     unspent_outputs = unspent(sender_addr)
     satoshis_value = covert_satoshis(value)
     satoshis_fee = covert_satoshis(fee)
+
     inputs, change = select_outputs(unspent_outputs, satoshis_value, satoshis_fee)
     if inputs:
         outputs = build_tx_params(target_addr, satoshis_value, sender_addr, change)
@@ -55,6 +60,8 @@ def trade(sender_addr, target_addr, value, fee=0.0002):
         print "#####" * 30
         print deserialize(tx)
         print "*****" * 30
+    else:
+        print "余额不足"
 
 if __name__ == "__main__" :
     import sys
