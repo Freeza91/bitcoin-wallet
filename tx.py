@@ -65,10 +65,23 @@ if __name__ == "__main__" :
         trade(args[1], args[2], args[3])
     else:
         trade(args[1], args[2], args[3], args[4])
+
 # demo1
-# python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy 100
-# python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy 100 0.0001
+"""
+python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy 100
+
+
+python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy 100 0.0001
+
+"""
 
 # demo2
-# trade('18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX', '1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy', 100)
-# trade('18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX', '1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy', 100, 0.002)
+
+"""
+
+trade('18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX', '1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy', 100)
+
+
+trade('18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX', '1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy', 100, 0.002)
+
+"""
