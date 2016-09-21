@@ -38,9 +38,9 @@ def show_url(tx):
     print "your can visit %s to see" %url
 
 def broadcast(sign_tx):
-    if check_user(sign_tx):
-        pushtx(sign_tx)
-        show_url(sign_tx)
+    # if check_user(sign_tx):
+    pushtx(sign_tx)
+    show_url(sign_tx)
 
 if __name__ == "__main__":
     import sys
