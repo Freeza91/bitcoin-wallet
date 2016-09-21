@@ -75,10 +75,9 @@ if __name__ == "__main__" :
 
 # demo1
 """
-python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy 100
+python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 100 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy
 
-
-python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy 100 0.0001
+python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 100 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy 0.0001
 
 """
 
@@ -86,9 +85,9 @@ python tx.py 18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX 1Mhh8Aem3kXM3E6rizfDof67dYiY9C4w
 
 """
 
-trade('18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX', '1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy', 100)
+trade('18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX', 100, '1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy')
 
 
-trade('18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX', '1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy', 100, 0.002)
+trade('18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX', 100, '1Mhh8Aem3kXM3E6rizfDof67dYiY9C4wBy', 0.002)
 
 """
