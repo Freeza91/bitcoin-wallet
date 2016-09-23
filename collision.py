@@ -11,8 +11,11 @@ def record(priv):
 while True:
     priv = random_key()
     addr = privtoaddr(priv)
-    utxo = unspent(addr)
-    if utxo:
-        time.sleep(5)
-        record(priv)
+    time.sleep(1)
+    try:
+        utxo = unspent(addr)
+        if utxo:
+            record(priv)
+    except Exception as e:
+        time.sleep(10)
 
