@@ -37,13 +37,12 @@ def select_outputs(unspent_list, value, fee):
     return None, 0
 
 def build_tx_params(target_addr, value, change_addr, change_value):
-    change_addr = '1GwaiEyCE3gwFcf9o9borxRqFb5XqxK17h'
     if change_value > 0:
         return [{'address' : target_addr, 'value' : value}, {'address': change_addr, 'value': change_value}]
 
     return [{'address' : target_addr, 'value' : value}]
 
-def trade(sender_addr, value, target_addr, fee=0.0001):
+def trade(sender_addr, value, target_addr, fee=0.0001, change_addr=None):
 
     unspent_outputs = unspent(sender_addr)
     satoshis_value = covert_satoshis(value)
@@ -51,10 +50,12 @@ def trade(sender_addr, value, target_addr, fee=0.0001):
 
     inputs, change = select_outputs(unspent_outputs, satoshis_value, satoshis_fee)
     if inputs:
-        outputs = build_tx_params(target_addr, satoshis_value, sender_addr, change)
+        if not change_addr:
+            change_addr = sender_addr
+        outputs = build_tx_params(target_addr, satoshis_value, change_addr, change)
         tx = mktx(inputs, outputs)
         print "构建的建议信息是："
-        print "由%s --->>> %s转账%sBTC, 手续费为%sBTC" %(sender_addr, target_addr, value, fee)
+        print "由%s --->>> %s转账%sBTC, 手续费为%sBTC, 找零地址:%s" %(sender_addr, target_addr, value, fee, change_addr)
         print "-----" * 30
         print tx
         print "#####" * 30
@@ -68,10 +69,12 @@ if __name__ == "__main__" :
     args = sys.argv
     if len(args) <= 3:
         print '参数不够'
-    elif len(args) == 4:
+    elif len(args) == 4: # 默认手续费
         trade(args[1], args[2], args[3])
-    else:
+    elif len(args) == 5: # 默认找零地址是自己
         trade(args[1], args[2], args[3], args[4])
+    else: # 自定义找零地址
+        trade(args[1], args[2], args[3], args[4], args[5])
 
 # demo1
 """
